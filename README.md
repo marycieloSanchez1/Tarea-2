@@ -1,4 +1,4 @@
-# UD1 Desarrollo de Interfaces de Usuario Interactivas con Javascript
+# UD2 Desarrollo de Interfaces de Usuario Interactivas con Javascript
 
 ### Programa de Frontend Developer Fundamentals :computer:
 
