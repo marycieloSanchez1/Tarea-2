@@ -53,54 +53,74 @@
                     <h5>Nuevo Producto</h5>
                     <a href="productos-page.html" class="btn btn-secondary float-right"><i class="fa fa-caret-left"></i> Retornar</a>
                 </div>
-                <form>
+                <form id="formulario-producto">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputCodigo">Código</label>
-                            <input type="text" class="form-control" id="inputCodigo" value="000004" readonly>
+                            <input type="text" class="form-control" id="inputCodigo" name="inputCodigo" value="000004" readonly>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputModelo">Modelo</label>
-                            <input type="text" class="form-control" id="inputModelo" required>
+                            <input type="text" class="form-control" id="inputModelo" name="inputModelo" required>
+                            <div class="invalid-feedback">
+                                El modelo solo permite 6 digitos
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputProducto">Nombre Producto</label>
-                        <input type="text" class="form-control" id="inputProducto" required>
+                        <input type="text" class="form-control" id="inputProducto" name="inputProducto" required>
+                        <div class="invalid-feedback">
+                            El nombre producto tiene que ser de 4 a 40 digitos.
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="inputDetalle">Detalle Producto</label>
-                        <input type="text" class="form-control" id="inputDetalle" required>
+                        <input type="text" class="form-control" id="inputDetalle" name="inputDetalle" required>
+                        <div class="invalid-feedback">
+                            El detalle producto tiene que ser de 10 a 100 digitos.
+                        </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-2">
                             <label for="inputPeso">Peso</label>
-                            <input type="number" class="form-control" id="inputPeso" required>
+                            <input type="number" class="form-control" id="inputPeso" name="inputPeso" required>
+                            <div class="invalid-feedback">
+                                El peso solo permite números
+                            </div>
                         </div>
                         <div class="form-group col-md-2">
                             <label for="inputMaterial">Material</label>
-                            <input type="text" class="form-control" id="inputMaterial" required>
+                            <input type="text" class="form-control" id="inputMaterial" name="inputMaterial" required>
+                            <div class="invalid-feedback">
+                                El material solo permite 15 digitos
+                            </div>
                         </div>
                         <div class="form-group col-md-2">
                             <label for="inputTalla">Talla</label>
-                            <select id="inputTalla" class="form-control">
+                            <select id="inputTalla" name="inputTalla" class="form-control">
                                 <option selected>Seleccione la talla</option>
                                 <option  value="S">S</option>
                                 <option  value="M">M</option>
                                 <option  value="L">L</option>
                                 <option  value="XL">XL</option>
                             </select>
+                            <div class="invalid-feedback">Debe elegir una talla</div>
                         </div>
                         <div class="form-group col-md-2">
                             <label for="inputStock">Stock</label>
-                            <input type="number" class="form-control" id="inputStock" required>
+                            <input type="number" class="form-control" id="inputStock" name="inputStock" required>
+                            <div class="invalid-feedback">
+                                El stock solo permite números
+                            </div>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputImagen">Imágen</label>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                                <input type="file" class="custom-file-input" id="customFileLang" name="customFileLang" lang="es">
                                 <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
-                              </div>
+                            </div>
+                            <div class="invalid-feedback">Debe elegir una imagen</div>
                         </div>
                     </div>
                     <button class="btn btn-primary float-right"><i class="fa fa-save"></i> Grabar</button>
@@ -116,5 +136,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" ></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/formulario-producto.js"></script>
 </body>
 </html>
