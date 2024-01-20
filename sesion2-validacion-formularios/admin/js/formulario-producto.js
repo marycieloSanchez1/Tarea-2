@@ -22,16 +22,14 @@ const campos = {
 }
 
 const validarCampo = (expresion, input, campo) => {
-    if(expresion.test(input.value)) {
-        document.getElementById(`${campo}`).classList.add('is-valid');
-        document.getElementById(`${campo}`).classList.remove('is-invalid');
-        campos[campo] = true;
-    }
-    else{
-        document.getElementById(`${campo}`).classList.add('is-invalid');
-        document.getElementById(`${campo}`).classList.remove('is-ivalid');
-        campos[campo] = false;
-    }
+    // se cambio de la estructura condicional a la estructura ternario
+    document.getElementById(`${campo}`).classList.add(//obtiene el elemento de HTML con el ID por la variable 'campo'
+        expresion.test(input.value) ? 'is-valid' : 'is-invalid' //Se añade la clase determinada por la expresion ternaria, si es 'is-valid' es verdadera si es 'is- invalid' es falsa
+      );
+      document.getElementById(`${campo}`).classList.remove(//con 'remove' elimina uno o mas clases CSS del elemento
+        expresion.test(input.value) ? 'is-invalid' : 'is-valid'
+      );
+      campos[campo] = expresion.test(input.value);//con esta linea, asigna el resultado de la evaluacion de la expresion
 }
 
 const validarFormulario = (e) => {
@@ -58,26 +56,22 @@ const validarFormulario = (e) => {
             validarCampo(expresiones.inputStock,e.target,'inputStock');
         break; 
         case "inputTalla":
-            if(e.target.value !==''){
-                document.getElementById('inputTalla').classList.remove('is-invalid');
-                document.getElementById('inputTalla').classList.add('is-valid');
-             
-            } else {
-                document.getElementById('inputTalla').classList.remove('is-valid');
-                document.getElementById('inputTalla').classList.add('is-invalid');
-                
-            }
+            //se cambio una sentencia condicional por un operador ternario 
+            document.getElementById('inputTalla').classList.remove(//decide si la clase'is-invalid' o 'is-valid' se deben de quitar
+                e.target.value !== '' ? 'is-invalid' : 'is-valid'
+              );
+              document.getElementById('inputTalla').classList.add(//decide si la clase'is-invalid' o 'is-valid' se deben de agregar
+                e.target.value !== '' ? 'is-valid' : 'is-invalid'
+              );
          break;  
          case "inputImagen":
-            if(e.target.value !==''){
-                document.getElementById('inputImagen').classList.remove('is-invalid');
-                document.getElementById('inputImagen').classList.add('is-valid');
-             
-            } else {
-                document.getElementById('inputImagen').classList.remove('is-valid');
-                document.getElementById('inputImagen').classList.add('is-invalid');
-                
-            }
+            //se cambio una sentencia condicional por un operador ternario 
+            document.getElementById('inputTalla').classList.remove(
+                e.target.value !== '' ? 'is-invalid' : 'is-valid'
+              );
+              document.getElementById('inputTalla').classList.add(
+                e.target.value !== '' ? 'is-valid' : 'is-invalid'
+              );
          break; 
     }
 }
@@ -91,3 +85,11 @@ selects.forEach((select) => {
     console.log(select);
     select.addEventListener('blur' , validarFormulario);
 });
+
+//Funcion que se añadio para el evento de HTML 
+function grabarEvento() {
+    // Lógica que se ejecutará cuando se haga clic en el botón
+    console.log("Botón Grabar clicado");
+    // Puedes añadir más acciones según sea necesario
+}
+
